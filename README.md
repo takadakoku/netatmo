@@ -6,17 +6,37 @@
 
 https://www.netatmo.com/en-eu/weather/weatherstation
 
-APIはLINE API, Netatmo APIを使用しています。(下記参照)
+簡単な概要としては、一時間辺りの降水量が設定値を超えるとラインに通知するというものです。
 
-LINE API =>
-
-Netatmo API => https://dev.netatmo.com/apidocumentation/weather
-
-システムの簡単な概要としては、一時間辺りの降水量が設定雨量を超えるとラインに通知するというものです。後半で詳しく説明しています。
+後半で各ファイルごとに詳しく説明しています。
 
 
 
-# 主要なファイル
+## 使用したAPI
+
+・LINE API
+
+https://notify-bot.line.me/doc/ja/
+
+・Netatmo API
+
+https://dev.netatmo.com/apidocumentation/weather
+
+## 使用したライブラリ
+
+・lnetatmo
+
+https://github.com/philippelt/netatmo-api-python
+
+
+
+
+
+
+
+
+
+# 説明するファイル
 
 ・setting.php
 
