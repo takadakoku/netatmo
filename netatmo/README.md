@@ -34,4 +34,6 @@ Once installed you can simple add lnetatmo to your python scripts by including:
     import lnetatmo
 
 For documentation, see usage
+
+
 ほげ
