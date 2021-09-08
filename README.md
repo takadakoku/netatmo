@@ -29,16 +29,15 @@ https://dev.netatmo.com/apidocumentation/weather
 https://github.com/philippelt/netatmo-api-python
 
 
+## 実行環境
 
-
-
-
-
-
+LINUX Ubuntu 18.04
 
 ## 主要ファイル
 
 ・call.sh
+
+rain_up.pyとrain_down.pyを同時に実行するためのコマンドが書かれたファイルです。
 
 ・setting.php
 
@@ -46,20 +45,37 @@ https://github.com/philippelt/netatmo-api-python
 
 ・rain.conf
 
-ここに書き込まれた値をpythonファイルに渡し設定値を超えているか、下回ったかなど判定しLINEに通知をします。
+ここに書き込まれた値をそれぞれのpythonファイルに渡し設定値を超えているか、下回ったかなど判定しLINEに通知をします。
 
-・rain_up.py
-
-このシステムを使う時に最初に動くファイルです。雨量が設定値を超えていればstop_rain_up.phpのURLとともにラインに通知します。
+・rain_up.py (rwxrwxrwx)
+              
+このシステムを使う時、最初に動くファイルです。雨量が設定値を超えていればstop_rain_up.phpのURLとともにラインに通知します。
 
 ・stop_rain_up.php
 
+アクセスするとrain_up.pyのパーミッションが(---x--x--x)になり通知が止まります。
 
-・rain_down.py
+同時にrain_down.pyのパーミッションが(rwxrwxrwx)になります。
+
+・rain_down.py (---x--x--x)
+
+雨量が設定値を下回るとLINEに通知します。
 
 ・stop_rain_down.php
 
+アクセスするとrain_down.pyのパーミッションが(---x--x--x)になり通知が止まります。
+
+同時にrain_up.pyのパーミッションが(rwxrwxrwx)になります。
+
 # 説明
 
-あらかじめrain_down.pyのパーミッションを111にしておきCronを使い定期的にcall.shを実行します。
+Cronなどを使い定期的にcall.shを実行します。
+
+setting.phpで設定した値を雨量が超えるとLINEに通知が来ます。
+
+メッセージに記載されているURLをクリックすると通知が止まります。
+
+雨が治まり雨量が設定値を下回るとLINEに通知が来ます。
+
+メッセージに記載されているURLをクリックすると通知が止まります。
 
