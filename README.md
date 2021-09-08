@@ -31,9 +31,9 @@ https://github.com/philippelt/netatmo-api-python
 
 ## 実行環境
 
-LINUX Ubuntu 18.04
+Linux Ubuntu 18.04
 
-# 概要
+## 概要
 
 Cronなどを使い定期的にcall.shを実行します。
 
